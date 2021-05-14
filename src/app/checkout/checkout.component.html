@@ -1,0 +1,77 @@
+<div class="center">
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form #form="ngForm" (submit)="onSubmit(form)">
+          <input type="hidden" name="id" [value]="service.formData.id">
+          <input type="hidden" name="amount" [value]="service.formData.amount">
+          <input type="hidden" name="bill" [value]="service.formData.bill">
+
+          <div class="row">
+            <div class="col-50">
+              <h3 style="color:#01998c;">Billing Address <i class="fas fa-map-marker-alt"></i></h3>
+              <label for="fullName"><i class="fa fa-user"></i> Full Name</label>
+              <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control"
+              placeholder="John M. Doe" required>
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control"
+              placeholder="john@example.com" required>
+              <label for="address"><i class="fa fa-address-card-o"></i> Address</label>              
+              <input name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control"
+              placeholder="542 W. 15th Street" required>
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input name="city" #city="ngModel" [(ngModel)]="service.formData.city" class="form-control"
+              placeholder="New York" required>
+  
+            
+            </div>
+  
+            <div class="col-50">
+              <h3 style="color:#01998c;">Payment <i class="fas fa-wallet"></i></h3>
+              <label for="fname">Accepted Cards</label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i> 
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <label for="nameOnCard">Name on Card</label>
+              <input name="nameOnCard" #nameOnCard="ngModel" [(ngModel)]="service.formData.nameOnCard" class="form-control"
+              placeholder="John More Doe" required>
+              <label for="cardNumber">Credit card number</label>          
+              <input name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber" class="form-control"
+              placeholder="1111-2222-3333-4444" required>
+              <label for="expMonth">Exp Month</label>
+              <input name="expMonth" #expMonth="ngModel" [(ngModel)]="service.formData.expMonth" class="form-control"
+              placeholder="September" required>
+  
+            
+            </div>
+  
+          </div>
+        
+          <button class="btn" type="submit" [disabled]="form.invalid"> Continue to checkout</button>
+        </form>
+      </div>
+    </div>
+  
+  
+    <div class="col-25">
+      <div class="container">
+        <h4 style="color:#01998c;">Cart
+          <span class="price" style="color:#01998c;">
+            <i class="fa fa-shopping-cart"></i>
+            
+          </span>
+        </h4>
+        <div *ngFor="let getCartDetail 
+        of getCartDetails">
+        <p><a style="color:#01998c;">{{getCartDetail.productName}} - 1 x {{getCartDetail.qnt}} Quantity(s) </a> <span class="price"> ₹ {{getCartDetail.qnt 
+    * getCartDetail.price | number}}</span></p>
+       </div>
+        <hr>
+        <p style="color:#01998c;">Total <span class="price" style="color:#01998c;"><b> ₹ {{total}}</b></span></p>
+      </div>
+    </div>
+  </div>
+</div>

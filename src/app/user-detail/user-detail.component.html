@@ -1,0 +1,34 @@
+<div class="center">
+  <h1 class="display-4 text-center"style="color: 	#01998c; font-family: 'Girassol', cursive;">Order Details <i class="fas fa-user-friends"></i></h1>
+<table class="table table-hover">
+    <tr>
+     <th>Name</th>
+     <th>Email</th>
+     <th>Address</th>
+      <th>City</th>
+     <th> Name On Card</th>
+     <th>Card Number</th>
+    <th>Exp Month </th>
+     <th>Bill Amount</th>
+     <th>Ordered List</th>
+  
+    
+    </tr>
+      <tr *ngFor="let pd of service.list">
+        <td>{{pd.fullName}}</td>
+        <td >{{pd.email}}</td>
+        <td >{{pd.address}}</td>
+        <td>{{pd.city}}</td>
+        <td>{{pd.nameOnCard}}</td>
+        <td>{{pd.cardNumber}}</td>
+        <td>{{pd.expMonth}}</td>
+        <td>{{pd.amount}}</td>
+        <td>{{pd.bill}}</td>
+        
+
+        
+
+       
+      </tr>
+    </table>
+  </div>

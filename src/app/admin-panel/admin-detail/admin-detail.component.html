@@ -1,0 +1,64 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <input type="hidden" name="qnt" [value]="service.formData.qnt">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="productName.valid" [class.red-icon]="productName.invalid && productName.touched"></i>
+          </div>
+        </div>
+        <input name="productName" #productName="ngModel" [(ngModel)]="service.formData.productName" class="form-control"
+          placeholder="Product Name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-images"  [class.green-icon]="imageUrl.valid" [class.red-icon]="imageUrl.invalid && imageUrl.touched"></i>
+          </div>
+        </div>
+        <input name="imageUrl" #imageUrl="ngModel" [(ngModel)]="service.formData.imageUrl" 
+        class="form-control" placeholder="Image Url" required >
+      </div>
+    </div>
+  
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-tags" [class.green-icon]="price.valid" [class.red-icon]="price.invalid && price.touched"></i>
+            </div>
+          </div>
+          <input name="price" #price="ngModel" [(ngModel)]="service.formData.price" class="form-control"
+            placeholder="xx.xx" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-align-right" [class.green-icon]="description.valid" [class.red-icon]="description.invalid && description.touched"></i>
+            </div>
+          </div>
+          <input name="description" #description="ngModel" [(ngModel)]="service.formData.description" class="form-control" placeholder="Description"
+          required >
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-align-right" [class.green-icon]="productType.valid" [class.red-icon]="productType.invalid && productType.touched"></i>
+            </div>
+          </div>
+          <input name="description" #productType="ngModel" [(ngModel)]="service.formData.productType" class="form-control" placeholder="productType"
+          required >
+        </div>
+      </div>
+    
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid" style=" background-color: #01998c;"><i class="fas fa-database"></i> Submit</button>
+    </div>
+  </form>

@@ -1,0 +1,96 @@
+
+
+<div class="row mt-5">
+
+   
+    <div class="col-md-2 mb-4">
+  
+    
+      <section>
+  
+  
+        
+        <section>
+  
+          <h3 class="font-weight-bold mb-3">Filters<button type="button" class="btn" (click)="Search('')"(click)="Sort('none')"(click)="Type('')"><i class="fas fa-sync-alt"></i></button> </h3>
+  
+          <section class="mb-4">
+            <h5 class="font-weight-bold mb-3"><i class="fas fa-search-plus"></i> Search </h5>
+            <div class="md-form md-outline mt-0 d-flex justify-content-between align-items-center">
+              <input type="text" #search1 class="form-control mb-0" placeholder="Search...">
+              <button type="button" class="btn" (click)="Search(search1.value)"> <i class="fas fa-search fa-lg"></i></button>
+             
+            </div> 
+          </section>
+  
+         
+          <section class="mb-4">
+  
+            <h5 class="font-weight-bold mb-3"><i class="fas fa-boxes"></i> Product Type </h5>
+            <div class="md-form md-outline mt-0 d-flex justify-content-between align-items-center">
+                <ul >
+                    <li class="list-group-item list-group-item-action mb-2 rounded"style=" background: #01998c; color: #fff;"><a (click)="Type('Tablet')"> <i class="fas fa-tablets"></i> Tablet </a></li>
+                    <li class="list-group-item list-group-item-action mb-2 rounded"style=" background: #01998c; color: #fff;"><a (click)="Type('Cream')"><i class="fas fa-monument"></i> Cream </a></li>
+                    <li class="list-group-item list-group-item-action mb-2 rounded"style=" background: #01998c; color: #fff;"><a (click)="Type('Syrup')"><i class="fas fa-prescription-bottle-alt"></i> Syrup </a></li>
+                </ul>
+           
+            </div>
+          </section> 
+          <section class="mb-4">
+  
+            <h5 class="font-weight-bold mb-3"><i class="fas fa-funnel-dollar"></i> Sort By Price </h5>
+            <div class="md-form md-outline mt-0 d-flex justify-content-between align-items-center">
+                <ul >
+                    <li class="list-group-item list-group-item-action mb-2 rounded"style=" background: #01998c; color: #fff;"><a (click)="Sort('ASC')"> <i class="fas fa-sort-amount-down-alt"></i> Low-High </a></li>
+                    <li class="list-group-item list-group-item-action mb-2 rounded"style=" background: #01998c; color: #fff;"><a (click)="Sort('DSC')"><i class="fas fa-sort-amount-up-alt"></i> High-Low </a></li>
+                   
+                </ul>
+           
+            </div>
+          </section> 
+        </section> 
+      </section> 
+    </div>
+
+
+    <div class="col-md-10 mb-4">
+      
+<div class="center">
+     <div class="row">
+        <div class="col-md-4 mb-4" 
+    *ngFor="let prod of (service.list  | myfilter2:filterargs2) |  myfilter:filterargs">
+    <div class="card h-100 shadow-sm"  style=" align-items: center;" >
+        <div class="image position-relative" style="cursor: pointer;">
+            <img src="{{prod.imageUrl}}" alt="{{prod.productName}}" class="img-fluid">
+                    </div>
+              <div class="content">
+                <h4>{{prod.productName}}</h4>
+         <h4>₹ {{prod.price}}</h4>
+         <div *ngIf="userDetails.userName!=='Admin'">
+          <button type="button" 
+            class="btn" 
+              (click)="inc(prod)">
+       <i class="fa fa-plus"></i>
+                        </button>
+       <span>{{prod.qnt}}</span>
+                <button type="button" 
+                    class="btn" 
+                (click)="dec(prod)">
+       <i class="fa fa-minus"></i>
+                </button>
+                    </div>
+                  </div>
+                  <div *ngIf="userDetails.userName!=='Admin'">
+              
+             <button type="button" 
+             class="cart_btn"style="cursor: pointer;" 
+       (click)="addCart(prod)">
+          Add To Cart <i class="fas fa-cart-plus"></i></button>
+
+                </div>
+                <br>
+              </div>
+            </div>
+        </div>
+    </div>
+    </div>

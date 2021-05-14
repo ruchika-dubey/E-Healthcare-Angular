@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+
+ div.form-group input.invalid{
+    border: 1px solid #dc3545; 
+ }
+ div.form-group label:first-child{
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    
+ }
+ input.ng-touched.ng-invalid{
+    border-color: #dc3545;
+}
+
+input.ng-valid{
+    border-color: #28a745;
+}
+
+.green-icon{
+    color: #28a745;
+}
+.red-icon{
+    color: #dc3545;
+}
+
+
+
+#toast-container > div {
+    opacity:1;
+}
+.toast-bootstrap-compatibility-fix {
+    opacity:1;
+  }
+.toast-success{background-color:#51A351!important;}
+.toast-error{background-color:#BD362F!important;}
+.toast-info{background-color:#2F96B4!important;}
+.toast-warning{background-color:#F89406!important;}

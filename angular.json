@@ -87,7 +87,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              
+              "src/styles.css",
+              "./src/assets/css/bootstrap.min.css",
+              "......",              
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/ngx-toastr/toastr-old.css",
+              "./src/styles.css",
+              ".......",
+              "......",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+             
             ],
             "scripts": []
           }

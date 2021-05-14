@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand brandtext" routerLink = "/home"><i class="fas fa-prescription-bottle-alt"></i> ABC Healthcare</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <div *ngIf="token!==null ">
+        <li class="nav-item">    
+          <a class="nav-link" routerLink="/product" > Products</a>
+        </li>
+      
+  </div>
+      <div *ngIf="token==null ">  
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user/login">Login</a>
+    </li>
+  </div>
+  <div *ngIf="token==null ">  
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user/registration" >Register</a>
+    </li>
+  </div>
+ 
+  <div *ngIf="userDetails.userName=='Admin'&&token!==null">
+    <li class="nav-item">    
+      <a class="nav-link" routerLink="/adminpanel" ><i class="fas fa-user-lock"></i> Admin Panel</a>
+    </li>
+    </div>
+    <div *ngIf="userDetails.userName=='Admin'&&token!==null">
+      <li class="nav-item">    
+        <a class="nav-link" routerLink="/userdetail" ><i class="fas fa-users"></i> Order Details</a>
+      </li>
+      </div>
+   
+    <div *ngIf="userDetails.userName!=='Admin'&&token!==null">
+      <li class="nav-item">    
+        <div class="cart_icon" 
+        routerLink="/cart">
+        <i class="fa fa-shopping-cart">
+        </i>
+             <div class="cart_value">
+               
+                     {{cartItem}}
+                            </div>
+                        </div>
+      </li>
+      </div>
+
+</ul>     
+  </div> 
+  <div *ngIf="token!==null">
+       
+    <a  class="nav-link" style="color: white;">Hello {{userDetails.userName}} <i class="fas fa-hand-spock"></i> </a> 
+   
+</div> 
+  <div *ngIf="token!==null ">   
+      
+        <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  
+ </div>
+</nav>
+
